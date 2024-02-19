@@ -5,6 +5,12 @@ This document is for **educational purposes** only and is not intended to promot
 
 **Introduction:**
 
+Hot, Rotten, Lonely, Juicy, Rogue, Sweet, Generic potatoes. There are a lot of different potatoes used to escalate privileges from Windows Service Accounts to Hot, Rotten, Lonely, Juicy, Rogue, Sweet, Generic potatoes.
+
+There are a lot of different potatoes used to escalate privileges from Windows Service Accounts to NT AUTHORITY/SYSTEM 
+
+NT AUTHORITY/SYSTEM is a built-in Windows account with the highest level of privileges, often referred to as the system account. It has extensive access rights and is used by the operating system for critical system-level processes and services.
+
 Privilege escalation vulnerabilities in Windows systems can pose significant security risks. Understanding and mitigating these vulnerabilities is crucial for system administrators and security professionals. This document explores various "potato" techniques used for Windows privilege escalation, providing an overview of their mechanics, limitations, and mitigation strategies.
 
 _**Important Note:**_
@@ -18,6 +24,7 @@ Potato Techniques:
 Overview: Exploited a local NBNS (NetBIOS Name Service) spoofing vulnerability (patched in MS16-075 and MS16-077) to relay NTLM authentication and achieve SYSTEM privileges. The NetBIOS Name Service is responsible for resolving NetBIOS names to IP addresses on a local network. ocal NBNS spoofing could be used as a technique in attacks such as man-in-the-middle attacks, where an attacker intercepts and potentially modifies the communication between two parties. Understanding and securing against such vulnerabilities is crucial for maintaining the integrity and security of a local network. Security measures like encryption, secure network configurations, and monitoring for suspicious activities are important in protecting against potential threats.
 
 Limitations: Not applicable to modern Windows versions. 
+
 Mitigation: Apply security patches mentioned above and disable unnecessary services like NetBIOS.
 
 **2. Rotten Potato:**
@@ -33,6 +40,7 @@ Unmarshalling on the client side: The client receives the response, unpacks the 
 RPC abstracts away the complexities of network communication, allowing developers to build distributed systems more easily. Examples of RPC frameworks include CORBA (Common Object Request Broker Architecture), gRPC (a modern, open-source RPC framework developed by Google), and Microsoft's DCOM (Distributed Component Object Model). Each of these provides a way for programs to communicate and invoke procedures across a network.
 
 Limitations: Patch addressed in Windows 10 1809 and Windows Server 2019 onwards.
+
 Mitigation: Update systems to supported versions and restrict DCOM communication.
 
 **3. Lonely Potato:**
@@ -49,6 +57,7 @@ Pivoting: Use the compromised system as a pivot point to attack other systems wi
 Run additional payloads: Execute additional exploits or payloads on the compromised system..
 
 Limitations: Deprecated and superseded by Juicy Potato.
+
 Mitigation: Same as for Rotten Potato.
 
 **4. Juicy Potato:**
@@ -57,6 +66,7 @@ Overview: Leveraged Background Intelligent Transfer Service (BITS) and COM serve
 Background Intelligent Transfer Service (BITS) is a Windows service designed to facilitate seamless file transfers between computers on a network in a background, asynchronous manner. Its primary applications include supporting Windows Update, Windows Defender, and various Microsoft software, ensuring the efficient and inconspicuous downloading of updates without significant impact on system performance. BITS exhibits resilient transfer capabilities, enabling downloads to pause and resume seamlessly, even in the event of system restarts or temporary network disconnections. Additionally, it allows for bandwidth throttling, offering configuration options to limit network bandwidth usage, ensuring that other applications can function smoothly without disruption. On the other hand, Component Object Model (COM) Servers serve the purpose of providing a platform-independent, distributed, and object-oriented system for creating binary software components that can collaborate and communicate. By fostering an object-oriented approach, COM allows developers to encapsulate functionality within objects, exposing a well-defined interface. Its interoperability features facilitate seamless interaction among components written in different programming languages, promoting code reuse and modularity. Furthermore, COM supports distributed computing, enabling components to be located on different machines and communicate over a network, contributing to a flexible and scalable software architecture.
 
 Limitations: Patch addressed in Windows 10 1809 and Windows Server 2019 onwards.
+
 Mitigation: Same as for Rotten Potato.
 
 **5. Rogue Potato:**
@@ -65,6 +75,7 @@ Overview: Targets the OXID resolution process in DCOM to achieve remote code exe
 In the Distributed Component Object Model (DCOM), the Object Exporter Identification (OXID) resolution process is a crucial mechanism for locating and identifying objects within a distributed system. When a client requests a remote object, the OXID resolution process comes into play. The client communicates with the Object Locator, which is responsible for resolving the requested OXID to the actual network location of the corresponding object. The process involves querying the OXID table to find the pertinent information about the object, such as its location and interfaces. This resolution allows DCOM to establish a connection to the remote object, ensuring that method invocations and communication can occur seamlessly across the distributed environment. The OXID resolution process is fundamental in facilitating the transparency and interoperability necessary for distributed computing in a COM-based architecture.
 
 Limitations: Requires a controlled machine on port 135 and may not work against fully patched systems.
+
 Mitigation: Keep systems updated, restrict inbound traffic on port 135, and monitor for suspicious activity.
 
 **6. Sweet Potato:**
@@ -72,6 +83,7 @@ Mitigation: Keep systems updated, restrict inbound traffic on port 135, and moni
 Overview: A collection of various potato techniques, including weaponized Juicy Potato, PrintSpoofer, and EfsRpc exploits.
 
 Limitations: Each included technique has its own limitations and patches.
+
 Mitigation: Apply necessary patches based on the specific techniques used.
 
 **7. Generic Potato:**
@@ -80,6 +92,7 @@ Overview: A modified version of Sweet Potato supporting HTTP and named pipe impe
 HTTP Impersonation and Named Pipe Impersonation are security mechanisms utilized in Windows environments for handling authentication and inter-process communication. HTTP impersonation, commonly employed in web applications, allows a server to temporarily adopt the security context of an authenticated client when processing HTTP requests. This ensures that actions performed by the server, such as accessing resources, are executed with the proper permissions based on the client's credentials. On the other hand, Named Pipe Impersonation is associated with inter-process communication, specifically using named pipes. It enables a server process to assume the security context of a client, facilitating secure actions on behalf of the client during communication. This is particularly relevant in scenarios involving Windows services or applications where a server needs to execute operations with the permissions of a connected client, maintaining the principle of least privilege. Both mechanisms contribute to the overall security of Windows systems by ensuring proper access control and user context management during communication and application execution.
 
 Limitations: Requires specific conditions like SeImpersonatePrivilege and might be patched in newer versions.
+
 Mitigation: Keep systems updated, restrict unnecessary privileges, and monitor for unauthorized access attempts.
 
 **Conclusion:**
