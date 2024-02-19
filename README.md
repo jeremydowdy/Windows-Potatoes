@@ -13,25 +13,25 @@ _While exploring these techniques, it is essential to follow responsible disclos
 
 Potato Techniques:
 
-**1. Hot Potato (Deprecated):**
+**1. Hot Potato:**
 
 Overview: Exploited a local NBNS spoofing vulnerability (patched in MS16-075 and MS16-077) to relay NTLM authentication and achieve SYSTEM privileges.
 Limitations: Not applicable to modern Windows versions.
 Mitigation: Apply security patches mentioned above and disable unnecessary services like NetBIOS.
 
-**2. Rotten Potato (Deprecated):**
+**2. Rotten Potato:**
 
 Overview: Abused RPC communication and CoGetInstanceFromIStorage API to impersonate SYSTEM privileges.
 Limitations: Patch addressed in Windows 10 1809 and Windows Server 2019 onwards.
 Mitigation: Update systems to supported versions and restrict DCOM communication.
 
-**3. Lonely Potato (Deprecated):**
+**3. Lonely Potato:**
 
 Overview: Similar to Rotten Potato, but without relying on meterpreter.
 Limitations: Deprecated and superseded by Juicy Potato.
 Mitigation: Same as for Rotten Potato.
 
-**4. Juicy Potato (Deprecated):**
+**4. Juicy Potato:**
 
 Overview: Leveraged Background Intelligent Transfer Service (BITS) and COM servers to exploit the same vulnerability as Rotten Potato.
 Limitations: Patch addressed in Windows 10 1809 and Windows Server 2019 onwards.
