@@ -80,7 +80,13 @@ Mitigation: Keep systems updated, restrict inbound traffic on port 135, and moni
 
 **6. Sweet Potato:**
 
-Overview: A collection of various potato techniques, including weaponized Juicy Potato, PrintSpoofer, and EfsRpc exploits.
+Overview: A collection of various potato techniques, including weaponized Juicy Potato, PrintSpoofer, and EfsRpc exploits. 
+Sweet Potato is a collection of various native Windows privilege escalation techniques from service accounts to SYSTEM. It has been created by @EthicalChaos and includes:
+RottenPotato
+Weaponized JuciyPotato with BITS WinRM discovery
+PrintSpoofer discovery and original exploit
+EfsRpc built on EfsPotato
+PetitPotam
 
 Limitations: Each included technique has its own limitations and patches.
 
